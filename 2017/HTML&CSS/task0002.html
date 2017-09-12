@@ -20,11 +20,11 @@
             <li><a href="#">链接一</a></li>
         </ul>
     </nav>
-    <div class="my-content">
+    <div class="my-content box-shadow">
         <h2>文章一级标题</h2>
         <h3>文章二级标题</h3>
         <h4>文章作者 文章发表时间</h4>
-        <p class="text-indent"> 
+        <p class="text-indent">
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
         </p>
@@ -50,33 +50,33 @@
 
         </p>
     </div>
-    <div class="my-content">
-        <h2>文章一级标题</h2>
+    <div class="my-content box-shadow">
+        <h2>另一篇文章的一级标题</h2>
         <h3>文章二级标题</h3>
         <h4>文章作者 文章发表时间</h4>
-        <p>
+        <p class="text-indent">
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
         </p>
-        <p>
+        <p class="text-indent">
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
 
         </p>
-        <p>
+        <p class="text-indent">
             这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">这里有一个链接http://ife.baidu.com</a> ，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
             这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落， 这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
 
         </p>
         <img src="img/001.jpg" alt="001">
-        <ul>
+        <ul class="text-indent">
             <li>列表项目一</li>
             <li>列表项目二</li>
             <li>列表项目三</li>
         </ul>
     </div>
 
-    <div class="my-pic">
+    <div class="my-pic box-shadow">
         <h2>图片</h2>
         <div class="my-pic-con">
             <p>好看的图片</p>
@@ -119,17 +119,20 @@
             <img src="img/001.jpg" alt="img/001.jpg">
         </div>
     </div>
-    <div class="my-last">
+    <div class="my-last box-shadow">
         <h2>最后一篇文章一级标题</h2>
         <h3>文章二级标题</h3>
         <h4>文章作者 文章发表时间</h4>
-        <ol>
-            <li>排名1</li>
-            <li>排名2</li>
-            <li>排名3</li>
-        </ol>
+        <div class="text-indent">
+            <ol>
+                <li>排名1</li>
+                <li>排名2</li>
+                <li>排名3</li>
+            </ol>
+        </div>
+
         <p>下面是一个表格，给表格加了一个border="1"好让你看出是一个表格</p>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>表头</th>
@@ -168,45 +171,68 @@
 
     </div>
 
-    <div class="sidebar">
-        <h2>这里以后是一个侧栏，这是侧栏的标题</h2>
-        <h2>侧栏注册窗口标题</h2>
+    <div class="sidebar box-shadow">
+        <h2 class="sidebar-head">这里以后是一个侧栏，这是侧栏的标题</h2>
 
         <form action="">
-            <p>
-                <label for="">请输入邮箱地址：</label>
-                <input type="text" placeholder="这是一个文本输入框">
-            </p>
-            <p>邮箱地址请按要求格式输入</p>
-            <p>
-                <label for="">请输入密码：</label>
-                <input type="password" placeholder="这是一个文本输入框">
-                <label for="">请重复输入密码：</label>
-                <input type="password" placeholder="这是一个文本输入框">
-            </p>
-            <p>密码请为6-16位英文数字</p>
-            <p>
-                <label for="">性别：</label>
-                <input type="radio" name="sex">男
-                <input type="radio" name="sex">女
-                <label for="">城市：</label>
-                <select name="" id="">
-                        <option value="">北京</option>
-                        <option value="">上海</option>
-                        <option value="">广州</option>
-                        <option value="">深圳</option>
-                        <option value="">杭州</option>
-                    </select>
-                <label for="">爱好：</label>
-                <input type="checkbox" name="aihao" id="">运动
-                <input type="checkbox" name="aihao" id="">艺术
-                <input type="checkbox" name="aihao" id="">科学
-                <label for="">个人描述：</label>
-                <textarea name="descrption" id="" cols="24" rows="2">这是一个多行输入框，输入您的个人描述
-                    </textarea>
-                <input type="submit" value="确认提交">
-
-            </p>
+            <table>
+                <tr>
+                    <td>请输入邮箱地址</td>
+                    <td><input type="text" placeholder="这是一个文本输入框"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>邮箱地址请按要求格式输入</td>
+                </tr>
+                <tr>
+                    <td>请输入密码</td>
+                    <td><input type="password" placeholder="这是一个文本输入框"></td>
+                </tr>
+                <tr>
+                    <td>请重复输入密码</td>
+                    <td><input type="password" placeholder="这是一个文本输入框"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>密码请为6-16位英文数字</td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td>
+                        <input type="radio" name="sex">男
+                        <input type="radio" name="sex">女
+                    </td>
+                </tr>
+                <tr>
+                    <td>城市</td>
+                    <td>
+                        <select name="city" id="">
+                            <option value="">北京</option>
+                            <option value="">上海</option>
+                            <option value="">广州</option>
+                            <option value="">深圳</option>
+                            <option value="">杭州</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>爱好</td>
+                    <td>
+                        <input type="checkbox" name="aihao" id="">运动
+                        <input type="checkbox" name="aihao" id="">艺术
+                        <input type="checkbox" name="aihao" id="">科学
+                    </td>
+                </tr>
+                <tr>
+                    <td>个人描述</td>
+                    <td>
+                        <textarea name="descrption" id="">这是一个多行输入框，输入您的个人描述</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="确认提交" class="submit-btn"></td>
+                </tr>
+            </table>
         </form>
     </div>
     <footer>

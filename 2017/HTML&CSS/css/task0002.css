@@ -8,6 +8,11 @@ body{
 
 }
 
+/* 盒子阴影 */
+.box-shadow{
+    box-shadow: 2px 2px #aaaaaa;
+}
+
 /* 清楚浮动micro clearfix */
 
 .clearfix::before,
@@ -55,7 +60,7 @@ nav ul li a{
 
 
 /* 文章块 */
-.my-content,.my-pic{
+.my-content,.my-pic,.my-last{
     margin: 20px;
     padding: 30px 20px;
     background-color: #ffffff;
@@ -67,7 +72,132 @@ nav ul li a{
 .my-content h3,h4{
     color: #999;
 }
+.my-content img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.my-content ul li{
+    list-style-type: none;
+    line-height: 2;
+}
 /* 缩进 */
 .text-indent{
     text-indent: 2em;
+}
+
+
+/* 图片内容块 */
+.my-pic .my-pic-con{
+    margin: 20px 50px;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    width: 200px;
+}
+
+.my-pic .my-pic-con p {
+    line-height: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.my-pic .my-pic-con img{
+    width: 200px;
+}
+
+
+/* last */
+.my-last h2,h3,h4,p{
+    line-height: 2;
+}
+.my-last h3,h4{
+    color: #999;
+}
+.my-last ol li{
+    list-style-position: inside;
+}
+.my-last ol{
+    margin: 20px 0;
+}
+.my-last table{
+    width: 100%;
+    border-collapse:collapse;    
+    /* border-spacing:0;  */
+}
+.my-last table thead{
+    text-align: left;
+    background: #333333;
+    color: #ffffff;
+    /* border: 1px solid  #333333; */
+}
+.my-last table thead tr th{
+    padding: 5px;
+    border-right: 1px solid #ffffff;
+}
+.my-last table tbody tr td{
+    padding: 5px;
+    border: 1px solid #cccccc;
+}
+.my-last table tbody tr:last-child{
+    background-color: #cccccc;
+    font-weight: bold;
+}
+
+
+/* 侧边栏 */
+.sidebar{
+    margin: 20px;
+    padding: 30px 20px;
+    background-color: #ffffff;
+}
+.sidebar .sidebar-head{
+    line-height: 50px;
+    padding-left: 15px;
+    border-left: 5px solid #cccccc;
+    margin-bottom: 20px;
+}
+.sidebar table{
+    width: 100%;
+}
+.sidebar table tr{
+    height: 36px;
+}
+.sidebar table tr td:first-child{
+    width: 30%;
+    text-align: right;
+    padding-right: 10px;
+}
+.sidebar table tr td input{
+    line-height: 25px;
+    padding-left: 5px;
+}
+.sidebar table tr:nth-child(2),tr:nth-child(5) td:last-child{
+    color: #cccccc;
+    padding-bottom: 20px;
+}
+.sidebar table tr td textarea{
+    width: 100%;
+    height: 100px;
+}
+.sidebar table tr:nth-child(9) td:first-child{
+    vertical-align: top;
+} 
+.sidebar table tr td .submit-btn{
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #3355d0;
+    border:none;
+    border-radius: 10px;
+}
+
+footer{
+    widows: 100%;
+    height: 80px;
+    background-color: #000000;
+    color: #ffffff;
+}
+footer p{
+    padding: 20px;
+    text-align: center;
 }
