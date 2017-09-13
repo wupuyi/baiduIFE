@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JavaScript task0001</title>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
 </head>
+
 <body>
-    
+
+    <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+    <button id="button">确认填写</button>
+
+    <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+    <script type="text/javascript">
+        (function () {
+            /*    
+            在注释下方写下代码
+            给按钮button绑定一个点击事件
+            在事件处理函数中
+            获取aqi-input输入的值，并显示在aqi-display中
+            */
+            
+            // 获取dom元素
+            var myInput = document.getElementById("aqi-input");
+            var btn = document.getElementById("button");
+            var msg = document.getElementById("aqi-display");
+
+            // 给按钮绑定事件
+            btn.onclick = function(){
+                //获取当前输入信息并返回
+                msg.innerHTML = myInput.value;
+            }
+
+        })();
+    </script>
 </body>
+
 </html>
