@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: " ";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #eeeeee;
+}
+
+.container .main{
+    margin: 0 140px 0 220px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.container .left .logo,
+.container .right .logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.container .left {
+    width: 158px;
+    padding: 20px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    margin-left: -100%;
+}
+.container .left .logo {
+    float: left;
+    margin-right: 20px;
+}
+.container .right {
+    width: 118px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    margin-left: -120px;
+}
+.container .right .logo {
+    margin: 20px;
+}
+
+
+.container .main,
+.container .left,
+.container .right {
+    float: left;
+}
