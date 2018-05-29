@@ -14,9 +14,28 @@
     <script>
         function dec2bin(decNumber) {
             // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+            if (decNumber < 0 || !Number.isInteger(decNumber)) {
+                alert('输入值必须为非负整数！');
+                return false;
+            }
+            let temp = decNumber;
+            let result = [];
+            if (decNumber === 0) {
+                return 0;
+            }
+            while (temp !== 0) {
+                result.unshift(temp % 2);
+                temp = Math.floor(temp / 2);
+            }
+            return result.join('');
         }
-        // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+        // 实现当点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
         // Some coding
+        let btn = document.getElementById('trans-btn');
+        btn.onclick = function () {
+            let decNumber = document.getElementById('dec-number').value;
+            document.getElementById('result').innerHTML = dec2bin(decNumber);
+        }
     </script>
 </body>
 </html>

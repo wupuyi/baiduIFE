@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九九乘法表</title>
+    <style>
+        .table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #cccccc;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>九九乘法表</h2>
+    <table class="table" id="my-table">
+    </table>
+    <script>
+        let myTable = document.getElementById('my-table');
+        for (let i = 1; i <= 9; i++) {
+            // 创建tr
+            let myTr = document.createElement('tr');
+            for (let j = 1; j <= i; j++) {
+                // 创建td
+                let myTd = document.createElement('td');
+                console.log(`${j}*${i}=${i*j}`);
+                // 创建td文本节点
+                let myTdText = document.createTextNode(`${j}*${i}=${i*j}`);
+                myTd.appendChild(myTdText);
+                myTr.appendChild(myTd)
+            }
+            myTable.appendChild(myTr)
+            console.log('\n');
+        }
+    </script>
+</body>
+</html>
