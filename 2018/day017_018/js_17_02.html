@@ -33,7 +33,7 @@
         // Some coding
         let btn = document.getElementById('trans-btn');
         btn.onclick = function () {
-            let decNumber = document.getElementById('dec-number').value;
+            let decNumber = parseInt(document.getElementById('dec-number').value);
             document.getElementById('result').innerHTML = dec2bin(decNumber);
         }
     </script>
