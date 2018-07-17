@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js事件知识</title>
 </head>
+
 <body>
-    
+  <input id="name" type="text">
+  <button id="submit-btn">submit</button>
+
+  <script>
+    (function() {
+      // 获取dom元素
+      var btn = document.getElementById('submit-btn');
+      var name = document.getElementById('name');
+      var keyEvent = function (event) {
+        var keynum = event.keyCode || event.which;
+        event.preventDefault();
+        if (keynum === 13) {
+          console.log(name.value);
+        } else if (keynum === 27) {
+          name.value = '';
+        }
+      }
+      // 绑定click事件
+      btn.onclick = function () {
+        console.log(name.value);
+      };
+      // 当input正在输入时
+      name.onfocus = function () {
+        document.body.addEventListener('keypress', keyEvent)
+      };
+      // 当input失去焦点时移除事件
+      name.onblur = function () {
+        document.body.removeEventListener('keypress', keyEvent);
+      };
+    })();
+  </script>
 </body>
+
 </html>
