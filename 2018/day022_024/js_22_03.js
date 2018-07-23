@@ -47,7 +47,7 @@ function diyTrim(str) {
       }
     }
     if (!str) {
-      str = ''
+      str = '';
     } else {
       while (str.lastIndexOf(String.fromCharCode(12288)) === str.length -1 || str.lastIndexOf(String.fromCharCode(32)) === str.length -1) {
         if (!str) {
