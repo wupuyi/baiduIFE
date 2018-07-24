@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js对象操作</title>
+</head>
+
+<body>
+
+  <script>
+    var tree = {
+      "id": 0,
+      "name": "root",
+      "left": {
+        "id": 1,
+        "name": "Simon",
+        "left": {
+          "id": 3,
+          "name": "Carl",
+          "left": {
+            "id": 7,
+            "name": "Lee",
+            "left": {
+              "id": 11,
+              "name": "Fate"
+            }
+          },
+          "right": {
+            "id": 8,
+            "name": "Annie",
+            "left": {
+              "id": 12,
+              "name": "Saber"
+            }
+          }
+        },
+        "right": {
+          "id": 4,
+          "name": "Tony",
+          "left": {
+            "id": 9,
+            "name": "Candy"
+          }
+        }
+      },
+      "right": {
+        "id": 2,
+        "name": "right",
+        "left": {
+          "id": 5,
+          "name": "Carl",
+        },
+        "right": {
+          "id": 6,
+          "name": "Carl",
+          "right": {
+            "id": 10,
+            "name": "Kai"
+          }
+        }
+      }
+    }
+    // 假设id和name均不会重复，根据输入name找到对应的id
+    // function findIdByName(name, obj) {
+    //   for (const key in obj) {
+    //     if (obj.hasOwnProperty(key)) {
+    //       if (name === obj['name']) {
+    //         console.log(obj['id']);
+    //         return ;
+    //       } else if (typeof obj[key] === 'object') {
+    //         findIdByName(name, obj[key]);
+    //       }
+    //     }
+    //   }
+    // }
+
+    function findIdByName(name) {
+      // 父节点有name则console
+      if(this.name == name){
+          console.log(this.id);
+        }
+      else{
+        // 没有则判断左子树和右子树
+        if(this.left) {
+          findIdByName.call(this.left,name);
+        }
+        if(this.right) {
+          findIdByName.call(this.right,name);
+        }
+      }
+    }
+    console.log('<-----name查询id----->')
+    findIdByName.call(tree, 'Lee'); // 7
+
+    // 假设id和name均不会重复，根据输入id找到对应的name
+    // function findNameById(id, obj) {
+    //   for (const key in obj) {
+    //     if (obj.hasOwnProperty(key)) {
+    //       if (id === obj['id']) {
+    //         console.log(obj['name']);
+    //         return ;
+    //       } else if (typeof obj[key] === 'object') {
+    //         findNameById(id, obj[key]);
+    //       }
+    //     }
+    //   }
+    // }
+
+    function findNameById (id) {
+      if (this.id === id) {
+        console.log(this.name)
+      } else {
+        if (this.left) {
+          findNameById.call(this.left, id);
+        } 
+        if(this.right) {
+          findNameById.call(this.right, id);
+        }
+      }
+    }
+    console.log('<-----id查询name----->')
+    findNameById.call(tree, 7); // Lee
+
+    // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+    // function getListWithDLR() {
+    //   if (this.name) {
+    //     console.log(this.name);
+    //   }
+    //   if (this.left) {
+    //     getListWithDLR.call(this.left);
+    //     if (this.right) {
+    //       getListWithDLR.call(this.right);
+    //     }
+    //   } else if (this.right) {
+    //     getListWithDLR.call(this.right);
+    //   }
+    // }
+    function getListWithDLR() {
+      console.log(this.name);
+      if (this.left) {
+        getListWithDLR.call(this.left);
+      }
+      if (this.right) {
+        getListWithDLR.call(this.right);
+      }
+    }
+    console.log('<-----前序遍历name----->')
+    getListWithDLR.call(tree);
+
+    // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+    function getListWithLDR() {
+      if (this.left) {
+        getListWithLDR.call(this.left);
+      }
+      console.log(this.name);
+      if (this.right) {
+        getListWithLDR.call(this.right);
+      }
+    }
+    
+    console.log('<-----中序遍历name----->')
+    getListWithLDR.call(tree);
+    // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+    function getListWithLRD() {
+      if (this.left) {
+        getListWithLRD.call(this.left);
+      }
+      if (this.right) {
+        getListWithLRD.call(this.right);
+      }
+      console.log(this.name);
+    }
+
+    console.log('<-----后续遍历name----->')
+    getListWithLRD.call(tree);
+  </script>
+</body>
+
+</html>
