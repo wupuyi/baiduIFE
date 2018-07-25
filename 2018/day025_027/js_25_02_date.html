@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Date</title>
+</head>
+
+<body>
+
+  <div class="time">
+    <h2 class="time-container"></h2>
+    <h2 class="time-container2"></h2>
+  </div>
+
+  <script>
+    // 15 17 13 09 05
+    function dealWithNumber(num) {
+      if (num < 10) {
+        return '0' + num;
+      } else {
+        return num;
+      }
+    }
+
+    function dealWithWeekCh(num) {
+      var result = ''
+      switch (num) {
+        case 0:
+          result = '星期一';
+          break;
+        case 1:
+          result = '星期二';
+          break;
+        case 2:
+          result = '星期三';
+          break;
+        case 3:
+          result = '星期四';
+          break;
+        case 4:
+          result = '星期五';
+          break;
+        case 5:
+          result = '星期六';
+          break;
+        case 6:
+          result = '星期日';
+          break;
+      }
+      return result;
+    }
+
+    function dealWithWeekEn(num) {
+      var result = ''
+      switch (num) {
+        case 0:
+          result = 'Monday';
+          break;
+        case 1:
+          result = 'Tuesday';
+          break;
+        case 2:
+          result = 'Wednesday';
+          break;
+        case 3:
+          result = 'Thursday';
+          break;
+        case 4:
+          result = 'Friday';
+          break;
+        case 5:
+          result = 'Saturday';
+          break;
+        case 6:
+          result = 'Sunday';
+          break;
+      }
+      return result;
+    }
+
+    // 处理时间 
+    // type = 12，为12小时制
+    // type = 24，为24小时制
+    function dealWithTime(hour, minutes, seconds, type) {
+      var time = '',
+          now  = '';
+      if (type === 12) {
+        if (parseInt(hour) > 12) {
+          now = 'PM';
+          hour = dealWithNumber(hour - 12);
+        } else {
+          now = 'AM';
+        }
+        return `${hour}:${minutes}:${seconds} ${now}`;
+      }
+      if (type === 24) {
+        return `${hour}:${minutes}:${seconds}`;
+      }
+    }
+
+    // 获取年份
+    function _getFullYear(date) {
+      return date.getFullYear();
+    }
+
+    // 获取月份
+    function _getMonth(date) {
+      var month = dealWithNumber(date.getMonth() + 1);
+      return month;
+    }
+
+    // 获取日期
+    function _getDate(date) {
+      var day = dealWithNumber(date.getDate());
+      return day;
+    }
+    
+    // 获取星期
+    function _getDay(date) {
+      var week = date.getDay();
+      return week;
+    }
+
+    // 获取小时
+    function _getHours(date) {
+      var hour = dealWithNumber(date.getHours());
+      return hour;
+    }
+
+    // 获取分钟
+    function _getMinutes(date) {
+      var minutes = dealWithNumber(date.getMinutes());
+      return minutes;
+    }
+
+    // 获取秒数
+    function _getSeconds(date) {
+      var seconds = dealWithNumber(date.getSeconds());
+      return seconds;
+    }
+    
+    // 格式化时间
+    function _getDateNow(type) {
+      var date     = new Date(),
+          year     = _getFullYear(date),
+          month    = _getMonth(date),
+          day      = _getDate(date),
+          hour     = _getHours(date),
+          minutes  = _getMinutes(date),
+          seconds  = _getSeconds(date),
+          timeNow  = '',
+          timeNow2 = '';
+      if (type === 'CN') {
+
+        var week          = dealWithWeekCh(_getDay(date)),
+            days          = dealWithTime(hour, minutes, seconds, 24),
+            timeContainer = document.querySelector('.time-container');
+
+        timeNow = `${year}年${month}月${day}日 ${week} ${days}`;
+        timeContainer.innerHTML = timeNow;
+      } else if (type === 'EN') {
+        
+        var week2          = dealWithWeekEn(_getDay(date)),
+            days2          = dealWithTime(hour, minutes, seconds, 12),
+            timeContainer2 = document.querySelector('.time-container2');
+        
+        timeNow2 = `${year}-${month}-${day} ${week2} ${days2}`;
+        timeContainer2.innerHTML = timeNow2;
+      }
+    }
+
+    setInterval(() => {
+      _getDateNow('CN');
+    }, 1000);
+    setInterval(() => {
+      _getDateNow('EN');
+    }, 1000);
+  </script>
+</body>
+
+</html>
