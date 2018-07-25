@@ -60,14 +60,41 @@
 
     function arrayToObj(arr) {
       var result = {};
-      arr.forEach(ele => {
-          if (ele[2] !== -1) {
+      arr.forEach((item, index, array) => {
+        if (item[2] === -1) {
+          result[item[0]] = {
+            'name': item[1],
+            'subMenu': {}
           }
+        }
+        if (item[2] === 1) {
+          result['1']['subMenu'][item[0]] = {
+            'name': item[1],
+            'subMenu': {}
+          }
+        }
+        if (item[2] === 2) {
+          result['2']['subMenu'][item[0]] = {
+            'name': item[1],
+            'subMenu': {}
+          }
+        }
+        if (item[2] === 4) {
+          result['1']['subMenu']['4']['subMenu'][item[0]] = {
+            'name': item[1]
+          }
+        }
+        if (item[2] === 6) {
+          result['2']['subMenu']['6']['subMenu'][item[0]] = {
+            'name': item[1]
+          }
+        }
       });
       console.log(result);
+      return result;
     }
 
-    arrayToObj(menuArr)
+    arrayToObj(menuArr);
   </script>
 </body>
 
