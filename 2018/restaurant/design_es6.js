@@ -1,17 +1,25 @@
 // 餐厅类
 // 属性：金钱，座位数量、职员列表
 // 方法：招聘职员，解雇职员
-class Rastaurant {
+class Restaurant {
   constructor (money, seat, staff) {
-    this.money = money;
-    this.seat = seat;
-    this.staff = staff;
+    if (typeof arguments[0] === 'object') {
+      this.cash = arguments[0].cash;
+      this.seats = arguments[0].seats;
+      this.staff = arguments[0].staff;
+    } else {
+      this.cash = cash;
+      this.seats = seats;
+      this.staff = staff;
+    }
   }
   // 招聘
-  recruitment () {
+  hire (worker) {
+    this.staff.push(worker);
   }
   // 解雇
-  dismissal () {
+  fire (id) {
+    this.staff.splice(id, 1);
   }
 }
 
@@ -42,7 +50,7 @@ class Waiter extends Staff {
 
 // 厨师类，继承自职员
 // 完成一次工作：烹饪出菜品
-class Chef extends Staff {
+class Cook extends Staff {
   constructor (id, name, wage) {
     super(id, name, wage);
   }
@@ -73,3 +81,17 @@ class Dishes {
     this,price = price;
   }
 }
+
+var ifeRestaurant = new Restaurant({
+  cash: 1000000,
+  seats: 20,
+  staff: []
+});
+
+var newCook = new Cook(ifeRestaurant.staff.length, "Tony", 10000);
+ifeRestaurant.hire(newCook);
+
+console.log(ifeRestaurant.staff);
+
+ifeRestaurant.fire(newCook);
+console.log(ifeRestaurant.staff);
