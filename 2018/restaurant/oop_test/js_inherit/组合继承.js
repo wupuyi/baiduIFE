@@ -18,6 +18,7 @@ function SubType(name, age) {
 // 继承方法
 SubType.prototype = new SuperType();
 SubType.prototype.constructor = SubType;
+
 SubType.prototype.sayAge = function () {
   console.log(this.age);
 }
